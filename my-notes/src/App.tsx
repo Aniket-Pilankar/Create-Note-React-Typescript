@@ -5,6 +5,7 @@ import {Note} from './Models/note.model'
 import Header from './Components/Header';
 import { Col, Container, Row } from 'react-bootstrap';
 import NotesList from './Components/NotesList';
+import CreateNotes from './Components/CreateNotes';
 
 // interface Note {
 //   id:string,
@@ -17,11 +18,11 @@ import NotesList from './Components/NotesList';
 function App() {
 
   const [notes,setNotes] = useState<Note[]>([{
-    id:(new Date).toString(),
+    id:(new Date()).toString(),
     title: "Meetings",
     text: " Schedule meeting with UI/UX Team",
     color: "#dfdfdf",
-    date: (new Date).toString()
+    date: (new Date()).toString()
   }])
 
 
@@ -32,6 +33,11 @@ function App() {
       <Row>
         <Col>
         <NotesList notes={notes} setNotes={setNotes} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+        <CreateNotes notes={notes} setNotes={setNotes} />
         </Col>
       </Row>
     </Container>
